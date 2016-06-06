@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    tools:context=".PathNavigationActivity">
+
+    <EditText
+        android:id="@+id/edtorigin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/bg_edittext_normal"
+        android:hint="Origin"
+        android:paddingLeft="@dimen/margin_small"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/common_plus_signin_btn_text_light_focused" />
+
+    <EditText
+        android:id="@+id/edtdestination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtorigin"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/bg_edittext_normal"
+        android:hint="Destination"
+        android:paddingLeft="@dimen/margin_small"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/common_plus_signin_btn_text_light_focused" />
+
+    <ImageView
+        android:id="@+id/btngetpath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/edtdestination"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/navigationshow" />
+</RelativeLayout>

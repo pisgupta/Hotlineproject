@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/police"
+            android:icon="@drawable/policeman"
+            android:title="Police" />
+        <item
+            android:id="@+id/fire"
+            android:icon="@drawable/firestation"
+            android:title="Fire" />
+        <item
+            android:id="@+id/ambulance"
+            android:icon="@drawable/ambulance"
+            android:title="Ambulance" />
+    </group>
+
+    <item android:title="Media">
+        <menu>
+            <item
+                android:id="@+id/takepicture"
+                android:icon="@drawable/addpicture"
+                android:title="Image" />
+            
+        </menu>
+
+    </item>
+
+    <item android:title="Setting">
+        <menu>
+            <item
+                android:id="@+id/setting"
+                android:icon="@drawable/settings"
+                android:title="Setting" />
+        </menu>
+
+    </item>
+
+</menu>

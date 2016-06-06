@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="5dp" >
+
+    <TextView
+        android:id="@+id/fmin_max"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ftemp"
+        android:layout_below="@+id/ftemp"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/ficon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:contentDescription="desc"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/ftemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ficon"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/ficon"
+        android:textColor="#ffffff"
+        android:textSize="43sp" />
+
+    <TextView
+        android:id="@+id/fdesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ficon"
+        android:layout_below="@+id/ficon"
+        android:layout_marginLeft="10dp"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/fdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/ficon"
+        android:background="@drawable/textborder"
+        android:paddingRight="3dp"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+</RelativeLayout>

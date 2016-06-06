@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Emergency Hotline</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_add_number">AddNumberActivity</string>
+    <string name="title_activity_splace">Splace</string>
+
+
+    <string name="logo_text">Event Tracker</string>
+
+    <string name="hint_police">Police number</string>
+    <string name="hint_fire">Fire Deptt. number</string>
+    <string name="hint_ambulance">Ambulance number</string>
+
+    <string name="err_msg_police">Enter police number</string>
+    <string name="err_msg_deptt">Enter fire deptt. number</string>
+    <string name="err_msg_ambulance">Enter ambulance number</string>
+
+    <string name="police">Police</string>
+    <string name="fire">Fire</string>
+    <string name="ambulance">Ambulance</string>
+
+    <string name="msg"> What do you want? </string>
+    <string name="msg_hint"> Enter Message </string>
+
+    <string name="btn_sign_up">Save all number</string>
+
+
+    <string name="title_timezone_add">Add Time Zone</string>
+    <string name="title_timezone_edit">Edit Time Zone</string>
+    <string name="timezone_pick_zone">Pick a time zone</string>
+    <string name="timezone_pick_name">Custom name</string>
+    <string name="timezone_save">Save</string>
+    <string name="timezone_cancel">Cancel</string>
+    <string name="timezone_search_filter">Type to narrow search...</string>
+    <string name="error_must_pick_zone_name">Please select a timezone and custom name</string>
+    <string name="about_title">World Time Zone</string>
+    <string name="about_message">Time</string>
+
+</resources>

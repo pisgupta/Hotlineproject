@@ -119,7 +119,7 @@ public class ImageCapturSend extends AppCompatActivity implements LocationResult
                         emailIntent.setType("plain/text");
 
                         emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
-                                new String[]{preferenceclass.getEmail()});
+                                new String[]{"yournews@nzherald.co.nz"});
 
                         emailIntent.putExtra(
                                 android.content.Intent.EXTRA_SUBJECT,

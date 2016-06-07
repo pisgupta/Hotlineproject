@@ -76,11 +76,37 @@ public class PathNavigationActivity extends AppCompatActivity implements OnMapRe
 
 
                 if (AppUtility.isNetworkavailable(PathNavigationActivity.this)) {
+                    StringBuilder s = new StringBuilder();
+                    StringBuilder d = new StringBuilder();
+
                     String origin = edtorigin.getText().toString().trim();
                     String destination = edtdestination.getText().toString().trim();
-                    String urlpath = MyConstantAPI.BASE_URL + MyConstantAPI.ORIGIN + origin + MyConstantAPI.DESTINATION + destination + MyConstantAPI.VOID + MyConstantAPI.MODE + MyConstantAPI.API_KEY;
+
+                    String[] org = origin.split(" ");
+                    String[] des = destination.split(" ");
+
+                    for (int i = 0; i < org.length; i++) {
+                        if (i < org.length-1) {
+                            s.append(org[i]);
+                            s.append("%20");
+                        } else {
+                            s.append(org[i]);
+                        }
+                    }
+
+                    for (int i = 0; i < des.length; i++) {
+                        if (i < des.length-1) {
+                            d.append(des[i]);
+                            d.append("%20");
+                        } else {
+                            d.append(des[i]);
+                        }
+                    }
+
+
+                    String urlpath = MyConstantAPI.BASE_URL + MyConstantAPI.ORIGIN + s.toString() + MyConstantAPI.DESTINATION + d.toString() + MyConstantAPI.VOID + MyConstantAPI.MODE + MyConstantAPI.API_KEY;
                     RouteParsingTask task = new RouteParsingTask(PathNavigationActivity.this);
-                    task.execute(urlpath);
+                  task.execute(urlpath);
                     Log.e("Url Path = ", urlpath);
                 } else {
                     AppUtility.showAlert(PathNavigationActivity.this);

@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -161,41 +162,62 @@ public class RouteParsingTask extends AsyncTask<String, Integer, List<List<HashM
         MarkerOptions markerOptions = new MarkerOptions();
 
         // Traversing through all the routes
-        for (int i = 0; i < s.size(); i++) {
-            points = new ArrayList<LatLng>();
-            lineOptions = new PolylineOptions();
 
-            // Fetching i-th route
-            List<HashMap<String, String>> path = s.get(i);
+        if (s.size() > 0) {
+            for (int i = 0; i < s.size(); i++) {
+                points = new ArrayList<LatLng>();
+                lineOptions = new PolylineOptions();
 
-            // Fetching all the points in i-th route
-            for (int j = 0; j < path.size(); j++) {
-                HashMap<String, String> point = path.get(j);
-                double lat = Double.parseDouble(point.get("lat"));
-                double lng = Double.parseDouble(point.get("lng"));
-                if (j == 0) {
-                    origin = new LatLng(lat, lng);
-                } else if (j == path.size() - 1) {
-                    destination = new LatLng(lat, lng);
+                // Fetching i-th route
+                List<HashMap<String, String>> path = s.get(i);
+
+                // Fetching all the points in i-th route
+                for (int j = 0; j < path.size(); j++) {
+                    HashMap<String, String> point = path.get(j);
+                    double lat = Double.parseDouble(point.get("lat"));
+                    double lng = Double.parseDouble(point.get("lng"));
+                    if (j == 0) {
+                        origin = new LatLng(lat, lng);
+                    } else if (j == path.size() - 1) {
+                        destination = new LatLng(lat, lng);
+                    }
+                    LatLng position = new LatLng(lat, lng);
+
+                    points.add(position);
                 }
-                LatLng position = new LatLng(lat, lng);
 
-                points.add(position);
+                // Adding all the points in the route to LineOptions
+                lineOptions.addAll(points);
+                lineOptions.width(10);
+                lineOptions.color(Color.RED);
             }
 
-            // Adding all the points in the route to LineOptions
-            lineOptions.addAll(points);
-            lineOptions.width(10);
-            lineOptions.color(Color.RED);
+            // Drawing polyline in the Google Map for the i-th rout
+
+            mcontext.map.clear();
+            try {
+                mcontext.map.addMarker(new MarkerOptions().position(origin).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)).title("Origin"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                mcontext.map.addMarker(new MarkerOptions().position(destination).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE)).title("Destination"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                mcontext.map.addPolyline(lineOptions);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                mcontext.map.animateCamera(CameraUpdateFactory.newLatLngZoom(destination, 12));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            Toast.makeText(mcontext, "No location found", Toast.LENGTH_SHORT).show();
         }
-
-        // Drawing polyline in the Google Map for the i-th rout
-
-        mcontext.map.clear();
-        mcontext.map.addMarker(new MarkerOptions().position(origin).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)).title("Origin"));
-        mcontext.map.addMarker(new MarkerOptions().position(destination).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE)).title("Destination"));
-        mcontext.map.addPolyline(lineOptions);
-        mcontext.map.animateCamera(CameraUpdateFactory.newLatLngZoom(destination, 12));
     }
 
 
